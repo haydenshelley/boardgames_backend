@@ -1,0 +1,9 @@
+{% if latest_boardgame_list %}
+    <ul>
+    {% for boardgame in latest_boardgame_list %}
+        <li><a href="/boardgames/{{ boardgame.id }}/">{{ boardgame.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Games Available.</p>
+{% endif %}
