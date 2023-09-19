@@ -10,4 +10,6 @@ def index(request):
     return JsonResponse(boardgames_list, safe=False)
 
 def detail(request, boardgame_id):
-    return HttpResponse("You're looking at boardgame %s." % boardgame_id)
+    boardgame = Boardgame.objects.filter(id=boardgame_id).values('name', 'price', 'player')
+    boardgame_list = list(boardgame)
+    return JsonResponse(boardgame_list, safe=False)
